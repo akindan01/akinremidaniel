@@ -18,6 +18,7 @@ const FloatingTechIcons = () => {
   const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState("");
+  const [isLoading, setIsLoading] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,13 +43,16 @@ const FloatingTechIcons = () => {
           console.log("SUCCESS!", response.status, response.text);
           setFormStatus(" Message sent successfully! I’ll get back to you soon.");
           setFormData({ name: "", email: "", message: "" });
-          setTimeout(() => setFormStatus(""), 4000);
         },
         (error) => {
           console.error("FAILED...", error);
           setFormStatus("Something went wrong. Please try again later.");
         }
-      );
+        )
+    .finally(() => {
+      setIsLoading(false);
+      setTimeout(() => setFormStatus(""), 4000);
+    } );
   };
 
   return (
@@ -699,13 +703,25 @@ function Home() {
                 ></textarea>
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 className="w-full bg-white text-black font-semibold py-3 rounded-lg hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2"
+                whileHover={!isLoading ? { scale: 1.05 } : {}}
+                whileTap={!isLoading ? { scale: 0.95 } : {}}
+                disabled={isLoading}
               >
+                {isLoading ? (
+                 <span className="flex items-center gap-2">
+                 <span className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></span>
+                  Sending...
+                </span>
+                ) : (
+                <>
                 <Send size={20} />
                 Send Message
-              </button>
+                </>
+              )}
+              </motion.button>
 
               {formStatus && (
                 <motion.p
