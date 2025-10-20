@@ -15,9 +15,41 @@ const FloatingTechIcons = () => {
     { icon: "🌐", name: "HTML/CSS", delay: 2.5 }
   ];
 
-  const EMAILJS_SERVICE_ID = "service_5zo49c2";
-  const EMAILJS_TEMPLATE_ID = "template_qpv92tb";
-  const EMAILJS_PUBLIC_KEY = "aFg7zCFUdjhmRT3Q_";
+  const Contact = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formStatus, setFormStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_5zo49c2", 
+        "template_qpv92tb",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "aFg7zCFUdjhmRT3Q_" 
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setFormStatus(" Message sent successfully! I’ll get back to you soon.");
+          setFormData({ name: "", email: "", message: "" });
+          setTimeout(() => setFormStatus(""), 4000);
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setFormStatus("Something went wrong. Please try again later.");
+        }
+      );
+  };
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
