@@ -91,7 +91,7 @@ function Home() {
       )
       .finally(() => {
         setIsLoading(false);
-        setTimeout(() => setFormStatus(""), 4000);
+        setTimeout(() => setFormStatus(""), 2000);
       });
   };
 
