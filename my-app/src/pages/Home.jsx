@@ -15,46 +15,7 @@ const FloatingTechIcons = () => {
     { icon: "🌐", name: "HTML/CSS", delay: 2.5 }
   ];
 
-  const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [formStatus, setFormStatus] = useState("");
-  const [isLoading, setIsLoading] = useState("");
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .send(
-        "service_5zo49c2", 
-        "template_qpv92tb",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        "aFg7zCFUdjhmRT3Q_" 
-      )
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setFormStatus(" Message sent successfully! I’ll get back to you soon.");
-          setFormData({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setFormStatus("Something went wrong. Please try again later.");
-        }
-        )
-    .finally(() => {
-      setIsLoading(false);
-      setTimeout(() => setFormStatus(""), 4000);
-    } );
-  };
-
+  
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {techIcons.map((tech, i) => (
@@ -94,28 +55,46 @@ const FloatingTechIcons = () => {
 
 function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormStatus("Message sent successfully! I'll get back to you soon.");
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
-      setFormStatus("");
-    }, 3000);
+    setIsLoading(true);
+
+    emailjs
+      .send(
+        "service_5zo49c2",
+        "template_qpv92tb",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "aFg7zCFUdjhmRT3Q_"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setFormStatus("Message sent successfully! I’ll get back to you soon.");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setFormStatus("Something went wrong. Please try again later.");
+        }
+      )
+      .finally(() => {
+        setIsLoading(false);
+        setTimeout(() => setFormStatus(""), 4000);
+      });
   };
+
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white font-sans relative overflow-x-hidden">
