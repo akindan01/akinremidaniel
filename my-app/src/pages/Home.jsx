@@ -722,7 +722,7 @@ function Home() {
           © 2024 Akinremi Daniel. All rights reserved.
         </p>
         <p className="text-gray-500 text-sm mt-2">
-          Built with React, Tailwind CSS, and Framer Motion
+         Developed By Akinremi Daniel
         </p>
       </footer>
     </div>
