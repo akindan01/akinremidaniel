@@ -248,7 +248,7 @@ function Home() {
 
           <p className="text-gray-300 text-lg leading-relaxed mb-10">
             I'm a <span className="text-white font-bold">Frontend Developer</span>{" "}
-            with <span className="text-white font-bold">2 years of experience</span>{" "}
+            with <span className="text-white font-bold">3 years of experience</span>{" "}
             crafting clean, responsive, and user-focused web applications. My tech
             journey started from a simple motivation to create and quickly grew into
             a passion for building digital experiences that solve problems and bring
