@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
-import { CheckCircle, Code2, FileCode, Braces, Atom, Smartphone, Paintbrush, Layout, Plug, GitBranch, UploadCloud, Mail, MapPin, Phone, Send, Menu, X, Music
+import {
+  CheckCircle, Code2, FileCode, Braces, Atom, Smartphone, Paintbrush, Layout, Plug, GitBranch, UploadCloud, Mail, MapPin, Phone, Send, Menu, X, Music, Blocks, Database, Globe, Cpu, Server, Gem, Shield, Link
 } from "lucide-react";
 
 
@@ -11,18 +12,20 @@ const FloatingTechIcons = () => {
     { icon: "📱", name: "React Native", delay: 0.5 },
     { icon: "🎨", name: "Tailwind", delay: 1 },
     { icon: "💻", name: "JavaScript", delay: 1.5 },
-    { icon: "🔧", name: "Git", delay: 2 },
-    { icon: "🌐", name: "HTML/CSS", delay: 2.5 }
+    { icon: "⛓️", name: "Blockchain", delay: 2 },
+    { icon: "💎", name: "Solidity", delay: 2.5 },
+    { icon: "🌐", name: "Web3", delay: 3 },
+    { icon: "🔧", name: "Git", delay: 3.5 }
   ];
 
-  
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
       {techIcons.map((tech, i) => (
         <motion.div
           key={i}
           className="absolute text-4xl opacity-10"
-          initial={{ 
+          initial={{
             x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
             y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000)
           }}
@@ -99,13 +102,13 @@ function Home() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-black via-gray-900 to-gray-950 text-white font-sans relative overflow-x-hidden">
       <FloatingTechIcons />
-      
+
       {/* Navbar */}
       <nav className="flex items-center justify-between px-6 md:px-16 py-4 bg-gray-900/70 backdrop-blur-md border border-gray-800 rounded-lg mb-8 sticky top-4 z-50 shadow-[0_0_25px_rgba(255,255,255,0.05)] mx-4">
         <h1 className="font-bold text-2xl text-white tracking-wide">
           DaniEL.Dev
         </h1>
-        
+
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-white">
           {["Home", "About", "Projects", "Contact"].map((item, i) => (
@@ -174,7 +177,7 @@ function Home() {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-xl md:text-2xl text-gray-300 font-semibold max-w-2xl mt-4"
           >
-            Frontend Developer • Tech Enthusiast • Jazz Musician
+            Frontend Developer • Blockchain Developer • Jazz Musician • Tech Enthusiast
           </motion.p>
 
           <motion.p
@@ -183,9 +186,7 @@ function Home() {
             transition={{ duration: 1, delay: 0.6 }}
             className="text-gray-200 text-lg leading-relaxed max-w-xl mt-4"
           >
-            I create seamless, elegant, and efficient digital experiences. My
-            approach blends precision, minimalism, and functionality — every line
-            of code is crafted to perform and impress.
+            I build seamless, elegant, and secure digital experiences at the intersection of frontend and blockchain development. My approach blends precision, minimalism, and performance—every line of code is crafted to function flawlessly and inspire trust.
           </motion.p>
 
           <motion.div
@@ -194,7 +195,7 @@ function Home() {
             transition={{ duration: 0.8, delay: 1 }}
             className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
           >
-            <a 
+            <a
               href="#contact"
               className="bg-white rounded-xl hover:bg-black hover:text-white border-2 border-white transition-all duration-300 px-6 py-3 text-black font-semibold shadow-lg w-full sm:w-40 text-center"
             >
@@ -248,8 +249,8 @@ function Home() {
 
           <p className="text-gray-300 text-lg leading-relaxed mb-10">
             I'm a <span className="text-white font-bold">Frontend Developer</span>{" "}
-            with <span className="text-white font-bold">3 years of experience</span>{" "}
-            crafting clean, responsive, and user-focused web applications. My tech
+            and <span className="text-white font-bold">Blockchain Developer</span>{" "}
+            Crafting clean, responsive, and user-focused web applications at the intersection of frontend and blockchain development. My tech
             journey started from a simple motivation to create and quickly grew into
             a passion for building digital experiences that solve problems and bring
             ideas to life.
@@ -319,64 +320,64 @@ function Home() {
               Technical Proficiencies in Frontend Development
             </p>
 
-            <div className="flex flex-col md:flex-row gap-8 items-stretch">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="bg-[#0a0a0a] rounded-xl shadow-lg shadow-gray-800 p-8 flex-1 min-w-[260px] hover:scale-105 transition-transform"
-              >
-                <h3 className="text-white font-bold text-2xl mb-4 flex items-center gap-2">
-                  <Code2 className="text-gray-400" size={28} /> Frontend Development
-                </h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-center gap-2">
-                    <FileCode className="text-gray-400" size={18} /> HTML &amp; CSS
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Braces className="text-gray-400" size={18} /> JavaScript (ES6+)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Atom className="text-gray-400" size={18} /> React.js
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Smartphone className="text-gray-400" size={18} /> React Native
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Paintbrush className="text-gray-400" size={18} /> Tailwind CSS
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Layout className="text-gray-400" size={18} /> Material UI
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Layout className="text-gray-400" size={18} /> Responsive Design
-                  </li>
-                </ul>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="bg-[#0a0a0a] rounded-xl shadow-lg shadow-gray-800 p-8 flex-1 min-w-[260px] hover:scale-105 transition-transform"
-              >
-                <h3 className="text-white font-bold text-2xl mb-4 flex items-center gap-2">
-                  <Plug className="text-gray-400" size={28} /> Tools &amp; More
-                </h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-center gap-2">
-                    <Plug className="text-gray-400" size={18} /> API Integration
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <GitBranch className="text-gray-400" size={18} /> Git &amp; Version Control
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <UploadCloud className="text-gray-400" size={18} /> Deployment
-                  </li>
-                </ul>
-              </motion.div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: "Frontend Development",
+                  icon: <Code2 className="text-gray-400" size={28} />,
+                  skills: [
+                    { name: "React.js & Next.js", icon: Atom },
+                    { name: "HTML5 & CSS3", icon: FileCode },
+                    { name: "JavaScript (ES6+)", icon: Braces },
+                    { name: "Tailwind CSS", icon: Paintbrush },
+                    { name: "Framer Motion", icon: Layout },
+                    { name: "Responsive Design", icon: Smartphone }
+                  ]
+                },
+                {
+                  title: "Blockchain Integration",
+                  icon: <Blocks className="text-gray-400" size={28} />,
+                  skills: [
+                    { name: "Solidity", icon: Gem },
+                    { name: "Smart Contracts", icon: FileCode },
+                    { name: "Web3.js & Ethers.js", icon: Globe },
+                    { name: "DApp Development", icon: Cpu },
+                    { name: "Wallet Integration", icon: Shield },
+                  ]
+                },
+                {
+                  title: "Tools",
+                  icon: <Plug className="text-gray-400" size={28} />,
+                  skills: [
+                    { name: "Git & GitHub", icon: GitBranch },
+                    { name: "API Integration", icon: Plug },
+                    { name: "Firebase/Supabase", icon: Database },
+                    { name: "Deployment", icon: UploadCloud },
+                    { name: "Performance Opt.", icon: Layout }
+                  ]
+                }
+              ].map((category, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="bg-[#0a0a0a] rounded-xl shadow-lg shadow-gray-800 p-8 hover:scale-105 transition-transform border border-gray-800 hover:border-gray-600"
+                >
+                  <h3 className="text-white font-bold text-2xl mb-6 flex items-center gap-3">
+                    {category.icon} {category.title}
+                  </h3>
+                  <ul className="space-y-4 text-gray-300">
+                    {category.skills.map((skill, i) => (
+                      <li key={i} className="flex items-center gap-3 group">
+                        <skill.icon className="text-gray-500 group-hover:text-white transition-colors" size={18} />
+                        <span className="group-hover:text-white transition-colors">{skill.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -416,7 +417,7 @@ function Home() {
           </motion.p>
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {/* Poetry Collection */}
+            {/* 1. Poetry Collection */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -445,7 +446,119 @@ function Home() {
               </div>
             </motion.div>
 
-            {/* BuildMe */}
+            {/* 2. */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
+            >
+              <div className="w-full h-full bg-gradient-to-br from-orange-900/30 to-red-900/30 flex items-center justify-center">
+                <Layout size={80} className="text-gray-700" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center text-center px-6">
+                <h3 className="text-2xl font-bold text-white mb-2">JumpBot</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  Blockchain Technology Landing Page highly interactive landing page designed to showcase the power and mechanisms of Blockchain technology.
+                </p>
+                <a
+                  href="https://jump-bot.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-5 py-2 rounded-lg font-semibold hover:bg-gray-200 transition-all"
+                >
+                  View Project
+                </a>
+              </div>
+            </motion.div>
+
+            {/* 3.*/}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
+            >
+              <div className="w-full h-full bg-gradient-to-br from-green-900/30 to-teal-900/30 flex items-center justify-center">
+                <Code2 size={80} className="text-gray-700" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center text-center px-6">
+                <h3 className="text-2xl font-bold text-white mb-2">Collide NGO</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  This project serves as the digital home for our mission to provide clean water/education/support by facilitating donations, volunteer sign-ups, and transparent reporting of our initiatives.
+                </p>
+                <a
+                  href="https://collide-ngo.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-5 py-2 rounded-lg font-semibold hover:bg-gray-200 transition-all"
+                >
+                  View Project
+                </a>
+              </div>
+            </motion.div>
+
+            {/* 4.*/}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
+            >
+              <div className="w-full h-full bg-gradient-to-br from-blue-900/30 to-indigo-900/30 flex items-center justify-center">
+                <Code2 size={80} className="text-gray-700" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center text-center px-6">
+                <h3 className="text-2xl font-bold text-white mb-2">XNFT</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  XNFT is a unique project that combines the power of blockchain technology with the convenience of NFTs to create a new way of interacting with the digital world.
+                </p>
+                <a
+                  href="https://github.com/akindan01/XNFT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-5 py-2 rounded-lg font-semibold hover:bg-gray-200 transition-all"
+                >
+                  View Project
+                </a>
+              </div>
+            </motion.div>
+
+            {/* 5.*/}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
+            >
+              <div className="w-full h-full bg-gradient-to-br from-pink-900/30 to-rose-900/30 flex items-center justify-center">
+                <FileCode size={80} className="text-gray-700" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center text-center px-6">
+                <h3 className="text-2xl font-bold text-white mb-2">EmoMind</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  EmoMind is a emotional support platform that provides users with access to help them manage their emotions.
+                </p>
+                <a
+                  href="https://emo-mind.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-5 py-2 rounded-lg font-semibold hover:bg-gray-200 transition-all"
+                >
+                  View Project
+                </a>
+              </div>
+            </motion.div>
+
+            {/* 6* */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -453,28 +566,8 @@ function Home() {
               viewport={{ once: true }}
               className="relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
             >
-              <div className="w-full h-full bg-gradient-to-br from-orange-900/30 to-red-900/30 flex items-center justify-center">
-                <Layout size={80} className="text-gray-700" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent flex flex-col items-center justify-center text-center">
-                <h3 className="text-2xl font-bold text-gray-300 mb-2">
-                  BuildMe – Real Estate
-                </h3>
-                <p className="text-gray-500 text-sm mb-3">Currently in development</p>
-                <div className="h-2 w-20 bg-gray-700 rounded-full animate-pulse"></div>
-              </div>
-            </motion.div>
-
-            {/* Portfolio */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative bg-[#0a0a0a] rounded-xl overflow-hidden border border-gray-800 shadow-lg h-64"
-            >
               <div className="w-full h-full bg-gradient-to-br from-green-900/30 to-teal-900/30 flex items-center justify-center">
-                <Code2 size={80} className="text-gray-700" />
+                <Layout size={80} className="text-gray-700" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent flex flex-col items-center justify-center text-center">
                 <h3 className="text-2xl font-bold text-gray-300 mb-2">Portfolio Revamp</h3>
@@ -519,11 +612,11 @@ function Home() {
               </h3>
               <p className="text-gray-300 leading-relaxed">
                 Building responsive, high-performance websites and web applications
-                using modern technologies like React, Tailwind CSS, and more.
+                using modern technologies.
               </p>
             </motion.div>
 
-    
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -538,12 +631,34 @@ function Home() {
                 Mobile Development
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Creating cross-platform mobile applications with React Native,
+                Creating cross-platform mobile applications,
                 delivering smooth experiences on both iOS and Android.
               </p>
             </motion.div>
 
-            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            >
+              {/* Icon Container - Updated to Cyan/Blue for a tech/blockchain feel */}
+              <div className="bg-cyan-500/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Link className="text-cyan-400" size={32} />
+              </div>
+
+              <h3 className="text-white font-bold text-xl mb-3 text-center">
+                Blockchain Solutions
+              </h3>
+
+              <p className="text-gray-300 leading-relaxed text-center">
+                Developing decentralized applications (dApps) and smart contracts
+                with a focus on security, transparency, and immutable architecture.
+              </p>
+            </motion.div>
+
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -564,7 +679,7 @@ function Home() {
             </motion.div>
           </div>
 
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -603,8 +718,8 @@ function Home() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-10">
-            
-            
+
+
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -690,16 +805,16 @@ function Home() {
                 disabled={isLoading}
               >
                 {isLoading ? (
-                 <span className="flex items-center gap-2">
-                 <span className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></span>
-                  Sending...
-                </span>
+                  <span className="flex items-center gap-2">
+                    <span className="animate-spin h-5 w-5 border-2 border-black border-t-transparent rounded-full"></span>
+                    Sending...
+                  </span>
                 ) : (
-                <>
-                <Send size={20} />
-                Send Message
-                </>
-              )}
+                  <>
+                    <Send size={20} />
+                    Send Message
+                  </>
+                )}
               </motion.button>
 
               {formStatus && (
@@ -722,7 +837,7 @@ function Home() {
           © 2024 Akinremi Daniel. All rights reserved.
         </p>
         <p className="text-gray-500 text-sm mt-2">
-         Developed By Akinremi Daniel
+          Developed By Akinremi Daniel
         </p>
       </footer>
     </div>
